@@ -4,8 +4,8 @@ I do any changes to test github....
 
 Things you may want to cover:
 
-* Ruby version
-
+<ol>
+ <li>Ruby version</li>
 * System dependencies
 
 * Configuration
@@ -21,3 +21,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+</ol>
