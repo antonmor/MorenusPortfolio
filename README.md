@@ -1,6 +1,6 @@
 # MorenusPortfolios
 
-I do any changes to test github....
+### I do any changes to test github for markdown
 
 Things you may want to cover:
 
@@ -24,7 +24,7 @@ end
 ```php
 public function person(){
 
-  @$arrayName = array('id' => id);
+  $arrayName = array('id' => id);
 }
 ```
 <li>JavaScript</li>
