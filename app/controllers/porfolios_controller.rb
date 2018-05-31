@@ -35,4 +35,8 @@ class PorfoliosController < ApplicationController
     end
   end
 
+  def show
+        @portfolio_items = Porfolio.find(params[:id]) 
+  end
+  
 end
