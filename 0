@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20180602180333_add_post_status_to_blogs.rb
