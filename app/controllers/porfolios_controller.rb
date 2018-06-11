@@ -2,12 +2,17 @@ class PorfoliosController < ApplicationController
   def index
     @portfolio_items = Porfolio.all
   end
+  def angular
+    @angular_portfolio_items = Porfolio.angular    
+  end
   def new
     @portfolio_items = Porfolio.new
+    3.times { @portfolio_items.technologies.build } #crea 3 items para agregar
   end
-  def create
-    @portfolio_items = Porfolio.new(params.require(:porfolio).permit(:title, :subtitle, :body))
 
+  def create
+    @portfolio_items = Porfolio.new(params.require(:porfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    #se agrega technologies_attributes para guardar en la tabla realacionada a esta
     respond_to do |format|
       if @portfolio_items.save
         format.html { redirect_to porfolios_path, notice: 'Portfolio was successfully created.' }
