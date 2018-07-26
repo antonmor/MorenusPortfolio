@@ -11,7 +11,7 @@ class PorfoliosController < ApplicationController
   end
 
   def create
-    @portfolio_items = Porfolio.new(params.require(:porfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_items = Porfolio.new(porfolio_params)
     #se agrega technologies_attributes para guardar en la tabla realacionada a esta
     respond_to do |format|
       if @portfolio_items.save
@@ -30,7 +30,7 @@ class PorfoliosController < ApplicationController
   def update
     @portfolio_items = Porfolio.find(params[:id]) 
     respond_to do |format|
-      if @portfolio_items.update(params.require(:porfolio).permit(:title, :subtitle, :body))
+      if @portfolio_items.update(porfolio_params)
         format.html { redirect_to action: 'index', notice: 'Portfolio was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio_items }
       else
@@ -51,5 +51,15 @@ class PorfoliosController < ApplicationController
       format.html { redirect_to porfolios_path, notice: 'Blog was successfully destroyed.' }
     end
   end
-  
+
+  private 
+
+  def porfolio_params
+    params.require(:porfolio).permit(
+      :title, 
+      :subtitle, 
+      :body, 
+      technologies_attributes: [:name])
+    
+  end
 end
